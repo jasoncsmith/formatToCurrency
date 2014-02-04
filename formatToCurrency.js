@@ -1,7 +1,6 @@
 (function () {
-	var display = document.createElement('div');
-	document.body.insertBefore(document.body, display);
-	
+
+	// http://stackoverflow.com/questions/18082/validate-numbers-in-javascript-isnumeric/1830844
 	var isNumber = function(n) {
 		return !isNaN(parseFloat(n)) && isFinite(n);
 	};
