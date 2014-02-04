@@ -32,17 +32,17 @@
 			integerPart = decimalParts[0],
 			fractionalPart = decimalParts[1];
 
-		var temporary = integerPart.split('').reverse(),
+		var tempArray = integerPart.split('').reverse(),
 			formattedIntegerPart = [];
 		
-		for (var i = 0, len = temporary.length; i < len; i++) {
+		for (var i = 0, len = tempArray.length; i < len; i++) {
 			if (i === 0) {
-				formattedIntegerPart.unshift(temporary[i]);
+				formattedIntegerPart.unshift(tempArray[i]);
 				continue;
 			}
 
 			if (i % 3 === 0) formattedIntegerPart.unshift(options.thousandsSep);
-			formattedIntegerPart.unshift(temporary[i]);
+			formattedIntegerPart.unshift(tempArray[i]);
 		}
 
 		return [ 
@@ -60,9 +60,9 @@
 })();
 
 var display = document.createElement('div');
-document.body.appendChild(display);
 var someNumber = -13254665464354.32465641;
-display.innerHTML = formatToCurrency(someNumber, { negSymbol: 'parens' });
+display.innerHTML = formatToCurrency(someNumber, { negSymbolType: 'parens' });
+document.body.appendChild(display);
 
 
 
