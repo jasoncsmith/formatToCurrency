@@ -5,7 +5,7 @@
 		return !isNaN(parseFloat(n)) && isFinite(n);
 	};
 
-	var signs = {
+	var negativeSymbols = {
 		minus: ['-', ''],
 		parens: ['(', ')']
 	};
@@ -15,7 +15,7 @@
 			currSymbol: '$',
 			currSep: ',',
 			thousandsSep: '.',
-			negSymbol: 'minus'
+			negSymbolType: 'minus'
 		};
 
 		var options = opts || {};
@@ -26,7 +26,7 @@
 
 
 		var value = isNumber(n) ? n : 0,
-			sign = (value < 0) ? signs[options.negSymbol] : [],
+			sign = (value < 0) ? negativeSymbols[options.negSymbolType] : [],
 			roundedDecimal = (Math.abs(value)).toFixed(2),
 			decimalParts = roundedDecimal.split('.'),
 			integerPart = decimalParts[0],
