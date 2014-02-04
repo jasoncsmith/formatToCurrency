@@ -13,8 +13,8 @@
 	var formatToCurrency = function(n, opts) {
 		var defaults = {
 			currSymbol: '$',
-			currSep: ',',
-			thousandsSep: '.',
+			thousandsSep: ',',
+			decimalSep: '.',
 			negSymbolType: 'minus'
 		};
 
@@ -41,7 +41,7 @@
 				continue;
 			}
 
-			if (i % 3 === 0) formattedIntegerPart.unshift(options.currSep);
+			if (i % 3 === 0) formattedIntegerPart.unshift(options.thousandsSep);
 			formattedIntegerPart.unshift(temporary[i]);
 		}
 
@@ -49,7 +49,7 @@
 			options.currSymbol,
 			sign[0],
 			formattedIntegerPart.join(''),
-			options.thousandsSep,
+			options.decimalSep,
 			fractionalPart,
 			sign[1]
 		].join('');
